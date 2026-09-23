@@ -1,217 +1,992 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>CuddleCo | E-Commerce</title>
+    <title>CuddleCo – Cozy Baby Essentials</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <!-- Favicon -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="media/logo.jpeg?v=2" type="image/jpeg">
-    <link rel="shortcut icon" href="media/logo.jpeg?v=2" type="image/jpeg">
-    <!-- FontAwesome for icons -->
-    <script src="https://kit.fontawesome.com/75248a7f42.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --color-cream: #faf8f5;
+            --color-warm-beige: #f4efe8;
+            --color-soft-taupe: #e8e0d8;
+            --color-primary: #a67c52;
+            --color-primary-dark: #8a6344;
+            --color-accent: #d4a5a0;
+            --color-accent-light: #e8c9c5;
+            --color-text: #3d3028;
+            --color-text-light: #6b5d52;
+            --color-text-lighter: #9a8d83;
+            --color-white: #ffffff;
+            --color-success: #8fa587;
+
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Outfit', sans-serif;
+
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --color-cream: #1a1512;
+                --color-warm-beige: #2a221a;
+                --color-soft-taupe: #3d3028;
+                --color-primary: #d4a5a0;
+                --color-primary-dark: #e8c9c5;
+                --color-accent: #a67c52;
+                --color-accent-light: #8a6344;
+                --color-text: #f5f1ed;
+                --color-text-light: #d4c9c0;
+                --color-text-lighter: #a8978d;
+                --color-white: #0f0d0b;
+                color-scheme: dark;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --color-cream: #1a1512;
+            --color-warm-beige: #2a221a;
+            --color-soft-taupe: #3d3028;
+            --color-primary: #d4a5a0;
+            --color-primary-dark: #e8c9c5;
+            --color-accent: #a67c52;
+            --color-accent-light: #8a6344;
+            --color-text: #f5f1ed;
+            --color-text-light: #d4c9c0;
+            --color-text-lighter: #a8978d;
+            --color-white: #0f0d0b;
+            color-scheme: dark;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-cream);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--color-accent-light);
+            border-bottom: 1px solid var(--color-soft-taupe);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .promo-bar {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .header-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .logo-wrapper {
+            flex: 0 0 120px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-wrapper img {
+            max-height: 80px;
+            width: auto;
+            display: block;
+            transition: transform var(--transition);
+        }
+
+        .logo-wrapper a:hover img {
+            transform: scale(1.05);
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #3d3028;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: width var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-icons {
+            flex: 0 0 auto;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .header-icons a {
+            font-size: 18px;
+            color: #3d3028;
+        }
+
+        .header-icons a:hover {
+            color: var(--color-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #3d3028;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+            padding: 100px 40px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 8vw, 56px);
+            color: var(--color-white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: all var(--transition);
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(166, 124, 82, 0.15);
+        }
+
+        /* Categories Grid */
+        .categories-section {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 5vw, 42px);
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--color-text);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(61, 48, 40, 0.4);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        .category-card:hover .category-overlay {
+            opacity: 1;
+        }
+
+        .category-label {
+            color: var(--color-white);
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        /* Products Section */
+        .products-section {
+            background-color: var(--color-warm-beige);
+            padding: 80px 40px;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all var(--transition);
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(61, 48, 40, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background-color: var(--color-soft-taupe);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--color-accent-light);
+            border: none;
+            border-radius: 6px;
+            color: var(--color-white);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition);
+            font-size: 13px;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--color-accent);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-white);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-section h2 {
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+
+        .newsletter-section p {
+            font-size: 16px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .email-input-wrapper {
+            display: flex;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .email-input-wrapper input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 14px;
+        }
+
+        .email-input-wrapper button {
+            padding: 14px 30px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition);
+        }
+
+        .email-input-wrapper button:hover {
+            background-color: var(--color-accent-light);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 40px;
+            background-color: var(--color-cream);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+        }
+
+        .feature-box {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-box h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .feature-box p {
+            font-size: 14px;
+            color: var(--color-text-light);
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+            padding: 80px 40px;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .testimonial-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .testimonial-rating {
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: var(--color-white);
+            font-size: 18px;
+            margin: 0 3px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-accent-light);
+            color: #ffffff;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer-col p {
+            color: #d0d0d0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #d0d0d0;
+            transition: color var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-logo {
+            max-height: 60px;
+            width: auto;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background-color var(--transition);
+            margin-bottom: 0;
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-main {
+                padding: 15px 20px;
+                gap: 20px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--color-warm-beige);
+                padding: 30px;
+                gap: 20px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo-wrapper {
+                flex: 0 0 60px;
+            }
+
+            .logo-wrapper img {
+                max-height: 50px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .email-input-wrapper {
+                flex-direction: column;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .categories-section,
+            .products-section,
+            .features-section,
+            .testimonial-section,
+            .newsletter-section {
+                padding: 60px 20px;
+            }
+
+            .categories-section,
+            .hero {
+                margin: 40px auto;
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <div id="intro-message">
-            <p>free shipping on all cozy orders over $50</p>
-        </div>
-        <div id="logo-container">
-            <div class="logo_navigation">
-                <div id="mobile-menu">
-                    <i id="mobile-menu_show" class="fa fa-solid fa-bars" onclick="showMenu()"></i>
-                    <i id="mobile-menu_hide" class="fa fa-solid fa-xmark" onclick="hideMenu()"></i>
-                </div>
-                <div id="search-div">
-                    <a href="#">
-                        <i class="fa fa-light fa-magnifying-glass"></i>
-                    </a>
-                </div>
+        <div class="header-main">
+            <div class="logo-wrapper">
+                <a href="index-new.html">
+                    <img src="media/logo.jpeg" alt="CuddleCo Logo">
+                </a>
             </div>
-            
-            <div id="logo-image">
-                <a href="index.html"><img src="media/logo.jpeg" alt="CuddleCo Logo" id="main-logo-img"></a>
-            </div>
-            
-            <div id="logo-contacts">
-                <a id="logo-contacts_inst" href="https://www.instagram.com/_cuddleco_?stkn=MWNxZXNtYnRnMHc4Mw%3D%3D&utm_source=qr" target="_blank"><i class="fa fa-brands fa-instagram"></i></a>
-                <a id="logo-contacts_user" href="#"><i class="fa fa-thin fa-user"></i></a>
-                <a id="logo-contacts_cart" href="#"><i class="fa fa-solid fa-basket-shopping"></i></a>
+            <nav id="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#products">Shop</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-icons">
+                <a href="#" title="Search"><i class="fas fa-search"></i></a>
+                <a href="#" title="Account"><i class="fas fa-user"></i></a>
+                <a href="#" title="Cart" id="cart-icon"><i class="fas fa-shopping-basket"></i></a>
+                <button class="mobile-menu-btn" id="menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
-        
-        <nav id="nav-bar">
-            <ul id="nav-list">
-                <li class="nav-item"><a href="#">Home</a></li>
-                <li class="nav-item"><a href="#">New In</a></li>
-                <li class="nav-item"><a href="#">Baby</a></li>
-                <li class="nav-item"><a href="#">Lifestyle</a></li>
-                <li class="nav-item"><a href="#">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
-        <div id="main-banner">
-            <div class="banner" style="background-image: url('https://placehold.co/1200x600/e6a89c/ffffff?text=Cozy+Collection');">
-                <a href="#" class="fullscreen-link"></a>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Wrap Your Little Ones in Pure Comfort</h1>
+                <p>Handpicked essentials designed for cozy cuddles and peaceful moments</p>
+                <button class="cta-button"
+                    onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
+                    Explore Collection
+                </button>
             </div>
-        </div>
-        
-        <div id="menu-section">
-            <a href="#">
-                <div class="menu-item menu-1" style="background-image: url('https://placehold.co/400x500/f0dac5/4a413d?text=New+In');"><span>NEW IN</span> </div>
-            </a>
-            <a href="#">
-                <div class="menu-item menu-2" style="background-image: url('https://placehold.co/400x500/d48b7d/ffffff?text=Baby');"><span>BABY</span></div>
-            </a>
-            <a href="#">
-                <div class="menu-item menu-3" style="background-image: url('https://placehold.co/400x500/a3b8b1/ffffff?text=Lifestyle');"><span>LIFESTYLE</span></div>
-            </a>
-        </div>
-        
-        <div id="gift-section">
-            <img src="https://placehold.co/1200x400/fdfbf7/4a413d?text=Gift+Cards+Available" alt="Gift Banner">
-        </div>
-        
-        <div id="favorites-section">
-            <h2>Our new favorites</h2>
-            <div class="product-container">
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/e6a89c/ffffff?text=Blanket">
-                        <p class="product-name">SOFT BLANKET</p>
+        </section>
+
+        <section class="categories-section">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <img src="https://placehold.co/400x400/e6a89c/ffffff?text=New+In" alt="New In">
+                    <div class="category-overlay">
+                        <span class="category-label">New In</span>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="https://placehold.co/400x400/d48b7d/ffffff?text=Baby" alt="Baby">
+                    <div class="category-overlay">
+                        <span class="category-label">Baby</span>
+                    </div>
+                </a>
+                <a href="#" class="category-card">
+                    <img src="https://placehold.co/400x400/a3b8b1/ffffff?text=Lifestyle" alt="Lifestyle">
+                    <div class="category-overlay">
+                        <span class="category-label">Lifestyle</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="products-section" id="products">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/e6a89c/ffffff?text=Blanket"
+                        alt="Soft Blanket">
+                    <div class="product-info">
+                        <p class="product-name">Soft Blanket</p>
                         <p class="product-price">$59.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/f0dac5/4a413d?text=Onesie">
-                        <p class="product-name">ORGANIC ONESIE</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/f0dac5/4a413d?text=Onesie"
+                        alt="Organic Onesie">
+                    <div class="product-info">
+                        <p class="product-name">Organic Onesie</p>
                         <p class="product-price">$29.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/a3b8b1/ffffff?text=Toy">
-                        <p class="product-name">PLUSH BEAR</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/a3b8b1/ffffff?text=Toy"
+                        alt="Plush Bear">
+                    <div class="product-info">
+                        <p class="product-name">Plush Bear</p>
                         <p class="product-price">$39.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/d48b7d/ffffff?text=Socks">
-                        <p class="product-name">COZY SOCKS</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/d48b7d/ffffff?text=Socks"
+                        alt="Cozy Socks">
+                    <div class="product-info">
+                        <p class="product-name">Cozy Socks</p>
                         <p class="product-price">$18.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/e6a89c/ffffff?text=Wrap">
-                        <p class="product-name">BABY WRAP</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/e6a89c/ffffff?text=Wrap"
+                        alt="Baby Wrap">
+                    <div class="product-info">
+                        <p class="product-name">Baby Wrap</p>
                         <p class="product-price">$45.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/f0dac5/4a413d?text=Pillow">
-                        <p class="product-name">NURSING PILLOW</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/f0dac5/4a413d?text=Pillow"
+                        alt="Nursing Pillow">
+                    <div class="product-info">
+                        <p class="product-name">Nursing Pillow</p>
                         <p class="product-price">$55.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/a3b8b1/ffffff?text=Bibs">
-                        <p class="product-name">COTTON BIBS</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/a3b8b1/ffffff?text=Bibs"
+                        alt="Cotton Bibs">
+                    <div class="product-info">
+                        <p class="product-name">Cotton Bibs</p>
                         <p class="product-price">$22.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-                <a href="#">
-                    <div class="product-card">
-                        <img src="https://placehold.co/300x300/d48b7d/ffffff?text=Sweater">
-                        <p class="product-name">KNITTED SWEATER</p>
+                </div>
+                <div class="product-card">
+                    <img class="product-image" src="https://placehold.co/300x300/d48b7d/ffffff?text=Sweater"
+                        alt="Knitted Sweater">
+                    <div class="product-info">
+                        <p class="product-name">Knitted Sweater</p>
                         <p class="product-price">$49.00</p>
+                        <button class="add-to-cart">Add to Cart</button>
                     </div>
-                </a>
-            </div>
-        </div>
-        
-        <div class="email-section gray-section">
-            <h2>Just for you</h2>
-            <p>Join the list to be the first to hear about new arrivals, sales and special offers!</p>
-            <form action="#" class="input-field" onsubmit="openPopup(); return false;">
-                <input type="email" name="email" placeholder="Email" required>
-                <button type="submit"><i class="fa fa-solid fa-arrow-right"></i></button>
-            </form>
-            <div class="popup" id="popup">
-                <h2>Thank You!</h2>
-                <p>Your email address has been submitted.</p>
-                <button onclick="closePopup()" type="button" class="popup-btn">OK</button>
-            </div>
-        </div>
-        
-        <div id="testimonial-section">
-            <div class="testimonial-img-wrapper">
-                <img src="https://placehold.co/500x600/f0dac5/4a413d?text=Happy+Customer" alt="Customer Review">
-            </div>
-            <div class="testimonial">
-                <h2>SO SOFT AND COZY!</h2>
-                <p class="review">"The quality of these products is simply unmatched. Everything is incredibly soft, beautifully designed, and my baby loves it. We will definitely be ordering again!"</p>
-                <p class="person">- Sarah Jenkins</p>
-                <button class="shop-it-btn" onclick="location.href='#'">Shop the look</button>
-            </div>
-        </div>
-        
-        <div class="gray-section advertisement-section">
-            <h2>Our promise to you</h2>
-            <div class="info-box">
-                <div class="info-col">
-                    <i class="fa fa-solid fa-comment"></i>
-                    <p class="info-header">READY TO CHAT</p>
-                    <p>If you need help with anything, reach out to us!</p>
-                </div>
-                <div class="info-col">
-                    <i class="fa-solid fa-heart"></i>
-                    <p class="info-header">LET'S GET SOCIAL</p>
-                    <p>Always keeping you up to date with the best bits</p>
-                </div>
-                <div class="info-col">
-                    <i class="fa-solid fa-gift"></i>
-                    <p class="info-header">PACKED WITH CARE</p>
-                    <p>Every order lovingly packed with care.</p>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="testimonial-content">
+                <div class="testimonial-rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="testimonial-text">"The quality is exceptional. Every product is incredibly soft and
+                    beautifully crafted. My baby loves everything, and I feel confident knowing it's made with care."
+                </p>
+                <p class="testimonial-author">— Sarah Jenkins, Happy Parent</p>
+            </div>
+        </section>
+
+        <section class="features-section" id="about">
+            <h2 class="section-title">Why Choose CuddleCo</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <span class="feature-icon">🌿</span>
+                    <h3>Eco-Conscious</h3>
+                    <p>Sustainably sourced materials that are gentle on your baby and kind to our planet</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">💚</span>
+                    <h3>Safety First</h3>
+                    <p>All products meet strict safety standards and are tested for your peace of mind</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">✨</span>
+                    <h3>Premium Quality</h3>
+                    <p>Hand-selected materials and meticulous craftsmanship in every piece</p>
+                </div>
+                <div class="feature-box">
+                    <span class="feature-icon">📦</span>
+                    <h3>Fast Shipping</h3>
+                    <p>Quick and secure delivery so your little one gets cozy even faster</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Join Our Cozy Family</h2>
+                <p>Get exclusive updates on new arrivals, special offers, and parenting tips</p>
+                <form class="email-input-wrapper" onsubmit="handleNewsletter(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer">
-        <div id="footer-grid">
-            <div class="footer-logo">
-                <a href="index.html"><img src="media/logo.jpeg" alt="CuddleCo Logo" class="footer-logo-img"></a>
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="media/logo.jpeg" alt="CuddleCo" class="footer-logo">
+                <p style="font-size: 14px; margin-top: 10px;">Crafting cozy moments for families since 2026</p>
             </div>
-            <div class="footer-links">
-                <h3>Links</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contacts</a></li>
-                </ul>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <a href="#">New In</a>
+                <a href="#">Baby</a>
+                <a href="#">Lifestyle</a>
+                <a href="#">Gift Cards</a>
             </div>
-            <div class="company-info">
-                <h3>CUDDLECO AESTHETICS</h3>
-                <p>We believe in wrapping your loved ones in the softest, most sustainable fabrics. Born in 2026 out of a love for cozy moments and beautifully designed baby wear.</p>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">Returns</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/_cuddleco_?stkn=MWNxZXNtYnRnMHc4Mw%3D%3D&utm_source=qr" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-        <div id="footer-bottom">
-            &copy; 2026 CUDDLECO - ALL RIGHTS RESERVED
+        <div class="footer-bottom">
+            <p>&copy; 2026 CuddleCo. All rights reserved. Made with 💚 for families everywhere.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu when link clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Newsletter signup
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const input = event.target.querySelector('input');
+            const button = event.target.querySelector('button');
+            const originalText = button.textContent;
+
+            button.textContent = '✓ Subscribed!';
+            button.style.backgroundColor = '#8fa587';
+            input.value = '';
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+            }, 3000);
+        }
+
+        // Add to Cart feedback
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const originalText = this.textContent;
+                this.textContent = '✓ Added!';
+
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            });
+        });
+    </script>
 </body>
+
 </html>
