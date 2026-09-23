@@ -1,247 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<section class="categories-section">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="categories-grid">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CuddleCo – Cozy Baby Essentials</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="media/logo.jpeg?v=2" type="image/jpeg">
-</head>
+        <a href="#" class="category-card">
+            <img src="https://placehold.co/400x400/e6a89c/ffffff?text=New+Arrivals"
+                alt="New Arrivals">
+            <div class="category-overlay">
+                <span class="category-label">New Arrivals</span>
+            </div>
+        </a>
 
-<body>
-    <header>
-        <div class="header-main">
-            <div class="logo-wrapper">
-                <a href="index.html">
-                    <img src="media/logo.jpeg" alt="CuddleCo Logo">
-                </a>
+        <a href="#" class="category-card">
+            <img src="https://placehold.co/400x400/d48b7d/ffffff?text=Baby+Dress"
+                alt="Baby Dress">
+            <div class="category-overlay">
+                <span class="category-label">Baby Dress</span>
             </div>
-            <nav id="nav-menu">
-                <a href="#home">Home</a>
-                <a href="#products">Shop</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="header-icons">
-                <a href="#" title="Search"><i class="fas fa-search"></i></a>
-                <a href="#" title="Account"><i class="fas fa-user"></i></a>
-                <a href="#" title="Cart" id="cart-icon"><i class="fas fa-shopping-basket"></i></a>
-                <button class="mobile-menu-btn" id="menu-toggle" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+        </a>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Wrap Your Little Ones in Pure Comfort</h1>
-                <p>Handpicked essentials designed for cozy cuddles and peaceful moments</p>
-                <button class="cta-button"
-                    onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">
-                    Explore Collection
-                </button>
+        <a href="#" class="category-card">
+            <img src="https://placehold.co/400x400/a3b8b1/ffffff?text=Hair+Accessories"
+                alt="Hair Accessories">
+            <div class="category-overlay">
+                <span class="category-label">Hair Accessories</span>
             </div>
-        </section>
+        </a>
 
-        <section class="categories-section">
-            <h2 class="section-title">Shop by Category</h2>
-            <div class="categories-grid">
-                <a href="#" class="category-card">
-                    <img src="https://placehold.co/400x400/e6a89c/ffffff?text=New+In" alt="New In">
-                    <div class="category-overlay">
-                        <span class="category-label">New In</span>
-                    </div>
-                </a>
-                <a href="#" class="category-card">
-                    <img src="https://placehold.co/400x400/d48b7d/ffffff?text=Baby" alt="Baby">
-                    <div class="category-overlay">
-                        <span class="category-label">Baby</span>
-                    </div>
-                </a>
-                <a href="#" class="category-card">
-                    <img src="https://placehold.co/400x400/a3b8b1/ffffff?text=Lifestyle" alt="Lifestyle">
-                    <div class="category-overlay">
-                        <span class="category-label">Lifestyle</span>
-                    </div>
-                </a>
+        <a href="#" class="category-card">
+            <img src="https://placehold.co/400x400/c8a2c8/ffffff?text=Bedding+Sets"
+                alt="Bedding Sets">
+            <div class="category-overlay">
+                <span class="category-label">Bedding Sets</span>
             </div>
-        </section>
+        </a>
 
-        <section class="products-section" id="products">
-            <h2 class="section-title">Featured Products</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/e6a89c/ffffff?text=Blanket"
-                        alt="Soft Blanket">
-                    <div class="product-info">
-                        <p class="product-name">Soft Blanket</p>
-                        <p class="product-price">$59.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/f0dac5/4a413d?text=Onesie"
-                        alt="Organic Onesie">
-                    <div class="product-info">
-                        <p class="product-name">Organic Onesie</p>
-                        <p class="product-price">$29.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/a3b8b1/ffffff?text=Toy"
-                        alt="Plush Bear">
-                    <div class="product-info">
-                        <p class="product-name">Plush Bear</p>
-                        <p class="product-price">$39.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/d48b7d/ffffff?text=Socks"
-                        alt="Cozy Socks">
-                    <div class="product-info">
-                        <p class="product-name">Cozy Socks</p>
-                        <p class="product-price">$18.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/e6a89c/ffffff?text=Wrap"
-                        alt="Baby Wrap">
-                    <div class="product-info">
-                        <p class="product-name">Baby Wrap</p>
-                        <p class="product-price">$45.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/f0dac5/4a413d?text=Pillow"
-                        alt="Nursing Pillow">
-                    <div class="product-info">
-                        <p class="product-name">Nursing Pillow</p>
-                        <p class="product-price">$55.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/a3b8b1/ffffff?text=Bibs"
-                        alt="Cotton Bibs">
-                    <div class="product-info">
-                        <p class="product-name">Cotton Bibs</p>
-                        <p class="product-price">$22.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img class="product-image" src="https://placehold.co/300x300/d48b7d/ffffff?text=Sweater"
-                        alt="Knitted Sweater">
-                    <div class="product-info">
-                        <p class="product-name">Knitted Sweater</p>
-                        <p class="product-price">$49.00</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonial-section">
-            <div class="testimonial-content">
-                <div class="testimonial-rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p class="testimonial-text">"The quality is exceptional. Every product is incredibly soft and
-                    beautifully crafted. My baby loves everything, and I feel confident knowing it's made with care."
-                </p>
-                <p class="testimonial-author">— Sarah Jenkins, Happy Parent</p>
-            </div>
-        </section>
-
-        <section class="features-section" id="about">
-            <h2 class="section-title">Why Choose CuddleCo</h2>
-            <div class="features-grid">
-                <div class="feature-box">
-                    <span class="feature-icon">🌿</span>
-                    <h3>Eco-Conscious</h3>
-                    <p>Sustainably sourced materials that are gentle on your baby and kind to our planet</p>
-                </div>
-                <div class="feature-box">
-                    <span class="feature-icon">💚</span>
-                    <h3>Safety First</h3>
-                    <p>All products meet strict safety standards and are tested for your peace of mind</p>
-                </div>
-                <div class="feature-box">
-                    <span class="feature-icon">✨</span>
-                    <h3>Premium Quality</h3>
-                    <p>Hand-selected materials and meticulous craftsmanship in every piece</p>
-                </div>
-                <div class="feature-box">
-                    <span class="feature-icon">📦</span>
-                    <h3>Fast Shipping</h3>
-                    <p>Quick and secure delivery so your little one gets cozy even faster</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="newsletter-section">
-            <div class="newsletter-content">
-                <h2>Join Our Cozy Family</h2>
-                <p>Get exclusive updates on new arrivals, special offers, and parenting tips</p>
-                <form class="email-input-wrapper" onsubmit="handleNewsletter(event)">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-col">
-                <img src="media/logo.jpeg" alt="CuddleCo" class="footer-logo">
-                <p>Crafting cozy moments for families since 2026</p>
-            </div>
-            <div class="footer-col">
-                <h4>Shop</h4>
-                <a href="#">New In</a>
-                <a href="#">Baby</a>
-                <a href="#">Lifestyle</a>
-                <a href="#">Gift Cards</a>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <a href="#">FAQ</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Shipping Info</a>
-                <a href="#">Returns</a>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/_cuddleco_?stkn=MWNxZXNtYnRnMHc4Mw%3D%3D&utm_source=qr"
-                        target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 CuddleCo. All rights reserved. Made with 💚 for families everywhere.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-
-</html>
+    </div>
+</section>
