@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
 
 :root {
-    /* Color Palette - Warm, Cozy, Soft (CuddleCo specific) */
-    --color-bg: #fdfbf7;
-    --color-primary: #e6a89c; /* Soft terracotta/pink */
-    --color-primary-dark: #d48b7d;
-    --color-secondary: #f0dac5; /* Warm peach */
-    --color-accent: #a3b8b1; /* Soft sage green */
+    /* Color Palette - Warm, Cozy, Soft (Matched to Logo) */
+    --color-bg: #f4efe8; /* Cream/Beige */
+    --color-primary: #9a6a57; /* Warm Mocha/Brown */
+    --color-primary-dark: #7a4f3b;
+    --color-secondary: #d49d9c; /* Dusty Pink/Rose */
+    --color-accent: #c49688;
     
-    --color-text: #4a413d; /* Soft dark brown */
-    --color-text-light: #7d726d;
+    --color-text: #5c3c2d; /* Dark Mocha */
+    --color-text-light: #8d6251;
     
     --color-white: #ffffff;
-    --color-gray: #f5f2eb;
+    --color-gray: #ece5dc;
     
     /* Typography */
     --font-sans: 'Outfit', sans-serif;
@@ -120,11 +120,15 @@ header {
     justify-content: center;
 }
 
-#logo-image h1 {
-    font-size: 2.5rem;
-    font-style: italic;
-    color: var(--color-text);
-    letter-spacing: -0.5px;
+#main-logo-img {
+    max-height: 120px;
+    width: auto;
+    mix-blend-mode: multiply;
+    transition: transform var(--transition-smooth);
+}
+
+#main-logo-img:hover {
+    transform: scale(1.02);
 }
 
 #mobile-menu {
@@ -540,10 +544,11 @@ header {
     padding: 0 40px;
 }
 
-.footer-logo h2 {
-    font-size: 2.5rem;
-    font-style: italic;
-    text-align: left;
+.footer-logo-img {
+    max-height: 140px;
+    width: auto;
+    mix-blend-mode: multiply;
+    margin-bottom: 20px;
 }
 
 .footer-links h3, .company-info h3 {
