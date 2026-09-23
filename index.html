@@ -1,58 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CuddleCo | Something Cozy is Coming</title>
-    <meta name="description" content="CuddleCo is launching soon. Get ready for something cozy.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CuddleCo | E-Commerce</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/75248a7f42.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="background-elements">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
-
-    <main class="container">
-        <header class="logo">
-            <h1>CuddleCo.</h1>
-        </header>
-
-        <section class="content">
-            <h2 class="headline">Get ready for <br><span>maximum coziness.</span></h2>
-            <p class="subheadline">We are weaving together something beautifully soft and incredibly comfortable. Be the first to experience it.</p>
-            
-            <form class="notify-form" id="notifyForm">
-                <div class="input-group">
-                    <input type="email" id="email" placeholder="Enter your email address" required>
-                    <button type="submit" id="submitBtn">
-                        <span class="btn-text">Notify Me</span>
-                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </button>
+    <header>
+        <div id="intro-message">
+            <p>free shipping on all cozy orders over $50</p>
+        </div>
+        <div id="logo-container">
+            <div class="logo_navigation">
+                <div id="mobile-menu">
+                    <i id="mobile-menu_show" class="fa fa-solid fa-bars" onclick="showMenu()"></i>
+                    <i id="mobile-menu_hide" class="fa fa-solid fa-xmark" onclick="hideMenu()"></i>
                 </div>
-                <p class="success-message" id="successMessage">Thank you! You're on the list.</p>
-            </form>
+                <div id="search-div">
+                    <a href="#">
+                        <i class="fa fa-light fa-magnifying-glass"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div id="logo-image">
+                <a href="index.html"><h1>CuddleCo.</h1></a>
+            </div>
+            
+            <div id="logo-contacts">
+                <a id="logo-contacts_inst" href="#"><i class="fa fa-brands fa-instagram"></i></a>
+                <a id="logo-contacts_user" href="#"><i class="fa fa-thin fa-user"></i></a>
+                <a id="logo-contacts_cart" href="#"><i class="fa fa-solid fa-basket-shopping"></i></a>
+            </div>
+        </div>
+        
+        <nav id="nav-bar">
+            <ul id="nav-list">
+                <li class="nav-item"><a href="#">Home</a></li>
+                <li class="nav-item"><a href="#">New In</a></li>
+                <li class="nav-item"><a href="#">Baby</a></li>
+                <li class="nav-item"><a href="#">Lifestyle</a></li>
+                <li class="nav-item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="social-links">
-                <a href="#" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    <main>
+        <div id="main-banner">
+            <div class="banner" style="background-image: url('https://placehold.co/1200x600/e6a89c/ffffff?text=Cozy+Collection');">
+                <a href="#" class="fullscreen-link"></a>
+            </div>
+        </div>
+        
+        <div id="menu-section">
+            <a href="#">
+                <div class="menu-item menu-1" style="background-image: url('https://placehold.co/400x500/f0dac5/4a413d?text=New+In');"><span>NEW IN</span> </div>
+            </a>
+            <a href="#">
+                <div class="menu-item menu-2" style="background-image: url('https://placehold.co/400x500/d48b7d/ffffff?text=Baby');"><span>BABY</span></div>
+            </a>
+            <a href="#">
+                <div class="menu-item menu-3" style="background-image: url('https://placehold.co/400x500/a3b8b1/ffffff?text=Lifestyle');"><span>LIFESTYLE</span></div>
+            </a>
+        </div>
+        
+        <div id="gift-section">
+            <img src="https://placehold.co/1200x400/fdfbf7/4a413d?text=Gift+Cards+Available" alt="Gift Banner">
+        </div>
+        
+        <div id="favorites-section">
+            <h2>Our new favorites</h2>
+            <div class="product-container">
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/e6a89c/ffffff?text=Blanket">
+                        <p class="product-name">SOFT BLANKET</p>
+                        <p class="product-price">$59.00</p>
+                    </div>
                 </a>
-                <a href="#" aria-label="Twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/f0dac5/4a413d?text=Onesie">
+                        <p class="product-name">ORGANIC ONESIE</p>
+                        <p class="product-price">$29.00</p>
+                    </div>
                 </a>
-                <a href="#" aria-label="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/a3b8b1/ffffff?text=Toy">
+                        <p class="product-name">PLUSH BEAR</p>
+                        <p class="product-price">$39.00</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/d48b7d/ffffff?text=Socks">
+                        <p class="product-name">COZY SOCKS</p>
+                        <p class="product-price">$18.00</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/e6a89c/ffffff?text=Wrap">
+                        <p class="product-name">BABY WRAP</p>
+                        <p class="product-price">$45.00</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/f0dac5/4a413d?text=Pillow">
+                        <p class="product-name">NURSING PILLOW</p>
+                        <p class="product-price">$55.00</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/a3b8b1/ffffff?text=Bibs">
+                        <p class="product-name">COTTON BIBS</p>
+                        <p class="product-price">$22.00</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="product-card">
+                        <img src="https://placehold.co/300x300/d48b7d/ffffff?text=Sweater">
+                        <p class="product-name">KNITTED SWEATER</p>
+                        <p class="product-price">$49.00</p>
+                    </div>
                 </a>
             </div>
-        </section>
+        </div>
+        
+        <div class="email-section gray-section">
+            <h2>Just for you</h2>
+            <p>Join the list to be the first to hear about new arrivals, sales and special offers!</p>
+            <form action="#" class="input-field" onsubmit="openPopup(); return false;">
+                <input type="email" name="email" placeholder="Email" required>
+                <button type="submit"><i class="fa fa-solid fa-arrow-right"></i></button>
+            </form>
+            <div class="popup" id="popup">
+                <h2>Thank You!</h2>
+                <p>Your email address has been submitted.</p>
+                <button onclick="closePopup()" type="button" class="popup-btn">OK</button>
+            </div>
+        </div>
+        
+        <div id="testimonial-section">
+            <div class="testimonial-img-wrapper">
+                <img src="https://placehold.co/500x600/f0dac5/4a413d?text=Happy+Customer" alt="Customer Review">
+            </div>
+            <div class="testimonial">
+                <h2>SO SOFT AND COZY!</h2>
+                <p class="review">"The quality of these products is simply unmatched. Everything is incredibly soft, beautifully designed, and my baby loves it. We will definitely be ordering again!"</p>
+                <p class="person">- Sarah Jenkins</p>
+                <button class="shop-it-btn" onclick="location.href='#'">Shop the look</button>
+            </div>
+        </div>
+        
+        <div class="gray-section advertisement-section">
+            <h2>Our promise to you</h2>
+            <div class="info-box">
+                <div class="info-col">
+                    <i class="fa fa-solid fa-comment"></i>
+                    <p class="info-header">READY TO CHAT</p>
+                    <p>If you need help with anything, reach out to us!</p>
+                </div>
+                <div class="info-col">
+                    <i class="fa-solid fa-heart"></i>
+                    <p class="info-header">LET'S GET SOCIAL</p>
+                    <p>Always keeping you up to date with the best bits</p>
+                </div>
+                <div class="info-col">
+                    <i class="fa-solid fa-gift"></i>
+                    <p class="info-header">PACKED WITH CARE</p>
+                    <p>Every order lovingly packed with care.</p>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <footer class="footer">
+        <div id="footer-grid">
+            <div class="footer-logo">
+                <h2>CuddleCo.</h2>
+            </div>
+            <div class="footer-links">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </div>
+            <div class="company-info">
+                <h3>CUDDLECO AESTHETICS</h3>
+                <p>We believe in wrapping your loved ones in the softest, most sustainable fabrics. Born in 2026 out of a love for cozy moments and beautifully designed baby wear.</p>
+            </div>
+        </div>
+        <div id="footer-bottom">
+            &copy; 2026 CUDDLECO - ALL RIGHTS RESERVED
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
