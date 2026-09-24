@@ -342,57 +342,6 @@
             margin-bottom: 0.5rem;
         }
 
-        .newsletter-section {
-            background: var(--accent);
-            padding: 3rem;
-            border-radius: 15px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .newsletter-section:not([data-theme="light"]) {
-                background: #3d3530;
-            }
-        }
-
-        .newsletter-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .email-input-wrapper {
-            display: flex;
-            gap: 0.5rem;
-            max-width: 500px;
-            margin: 1.5rem auto 0;
-        }
-
-        .email-input-wrapper input {
-            flex: 1;
-            padding: 1rem;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-family: inherit;
-        }
-
-        .email-input-wrapper button {
-            padding: 1rem 2rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .email-input-wrapper button:hover {
-            background: var(--primary-dark);
-        }
-
         footer {
             background: var(--text);
             color: white;
@@ -595,17 +544,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="newsletter-section">
-            <div class="newsletter-content">
-                <h2>Join Our Cozy Family</h2>
-                <p>Get exclusive updates on new arrivals, special offers, and parenting tips</p>
-                <form class="email-input-wrapper" onsubmit="handleNewsletter(event)">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
-        </section>
     </main>
 
     <footer id="contact">
@@ -639,13 +577,5 @@
             <p>&copy; 2026 CuddleCo. All rights reserved. Made with 💚 for families everywhere.</p>
         </div>
     </footer>
-
-    <script>
-        function handleNewsletter(event) {
-            event.preventDefault();
-            alert('Thanks for subscribing! Check your email for exclusive offers.');
-            event.target.reset();
-        }
-    </script>
 </body>
 </html>
